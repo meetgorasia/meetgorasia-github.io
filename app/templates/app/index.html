@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Reward App</title>
+        <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+    </head>
+    <body>
+        <h1>There are {{ cols }} types of balls:</h1>
+        <div>
+        <table>        
+        <tr>
+            <th>COLORS</th>
+        {% for color in colors %}
+            <th style="background-color: {{ color }}; color: white;">{{ color }}</th>
+        {% endfor %}
+        </tr>
+        <tr>
+            <td>NO. OF BALLS</td>
+        {% for count in ball_counts %}
+            <td>{{ count }}</td>
+        {% endfor %}
+        </tr>
+        <tr>
+            <td>REWARD</td>
+        {% for desc in descriptions %}
+            <td>{{ desc }}</td>
+        {% endfor %}
+        </tr>
+        </table>
+        </div>
+        <h1>You picked up:</h1>
+        <div id="result_ball" style="background-color: {{ result }};"><h2>{{ result }}</h2></div>
+        <h1>Your reward is:</h1>
+        <h2 id="reward_line">{{ reward }}</h2><br>
+        <button onClick="window.location.reload();">PICK UP ANOTHER BALL</button>
+    </body>
+</html>
